@@ -1,0 +1,47 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.order{
+    display: flex;
+    flex-direction: column;
+    .order_info{
+        display: flex;
+        flex-direction: column;
+    }
+    .order_order{
+        display: flex;
+        flex-direction: column;
+        .order_item{
+            display: flex;
+            .name{
+                flex-grow: 1;
+            }
+            .count{
+                width: 100px;
+            }
+            .price{
+                width: 100px;
+            }
+            .total_price{
+                width: 100px;
+            }
+        }
+    }
+    .order_price{
+        display: flex;
+        justify-content: end;
+        strong{
+            width: 100px;
+            font-size: 20px;
+        }
+
+    }
+    .order_id{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 100px;
+    }
+}

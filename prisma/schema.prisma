@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:xxxxxx@localhost:3306/MCMenu"
+}
+
+
+enum Placement {
+  hall
+  go
+}
+
+enum Type {
+  chi_burger
+  beef_burger
+  snack
+  dessert
+  cold_drink
+  hot_drink
+}
+
+enum Order_status {
+  geting
+  ready
+}
+
+
+
+model Order {
+  id        Int        @id @default(autoincrement())
+  placement Placement
+  date      DateTime   @default(now())
+  foods     Food[]   @relation("OrderFood")
+  con      OrderFood[]
+  price    Int  
+  status   Order_status @default(geting)
+}
+
+model Food {
+  id       Int      @id @default(autoincrement())
+  type     Type
+  en_name  String
+  ru_name  String
+  price    Int  
+  orders   Order[] @relation("OrderFood")
+  con      OrderFood[]
+}
+
+model OrderFood {
+  id       Int      @id @default(autoincrement())
+  count    Int
+  order_id  Int
+  order    Order    @relation(fields: [order_id], references: [id])
+  food_id   Int
+  food     Food     @relation(fields: [food_id], references: [id])
+}

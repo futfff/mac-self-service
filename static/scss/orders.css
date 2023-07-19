@@ -1,0 +1,35 @@
+#app {
+  display: -ms-grid;
+  display: grid;
+  padding: 10px;
+  -ms-grid-columns: 1fr 10px 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+#app .top {
+  font-family: "Nunito", sans-serif;
+  background-color: #4de86e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 40px;
+}
+#app .orders {
+  display: -ms-grid;
+  display: grid;
+  padding: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  font-family: "Rubik", sans-serif;
+}
+#app .orders .order {
+  font-size: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}

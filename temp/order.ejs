@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#<%= order.id %></title>
+    <link rel="stylesheet" type="text/css" href="/scss/order.css">
+</head>
+<body>
+    <div class="order">
+        <div>######################################################################</div>
+        <div class="order_info">
+            <p>placement : <%= order.placement %> </p>
+            <p>date : <%= order.date %> </p>
+        </div>
+        <h1>order :</h1>
+        <div class="order_order">
+            <% order.con.forEach(function(item) { %>
+               <div class="order_item">
+                 <div class="name"><%= item.food.en_name %> </div>
+                 <div class="price"> <%= item.food.price %>₸ </div>
+                 <div class="count"> <%= item.count %>X</div>
+                 <div class="total_price"> <strong> <%= item.food.price * item.count  %>₸ </strong> </div>
+             </div> 
+              <% }) %>
+        </div>
+        <br>
+        <div class="order_price">
+           <strong><%= order.price %> ₸ </strong> 
+        </div>
+        <br>
+        <div class="order_id">
+            #<%= order.id %>
+        </div>
+        <div>######################################################################</div>
+    </div>
+</body>
+</html>

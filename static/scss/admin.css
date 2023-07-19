@@ -1,0 +1,132 @@
+.but {
+  -webkit-transition: -webkit-transform 0.1s ease-in-out;
+  transition: -webkit-transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.but:hover {
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
+}
+.but:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+body {
+  background-color: #8176e3;
+}
+
+#app {
+  width: calc(100vw - 100px);
+  min-width: 400px;
+  padding: 50px;
+}
+#app .order_obj {
+  font-family: "Open Sans", sans-serif;
+  margin: 50px;
+  float: left;
+  width: 300px;
+  border-radius: 30px;
+  background-color: #e6f8ff;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#app .order_obj .order_top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#app .order_obj .order_top .order_id {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+#app .order_obj .order_top .order_done {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  padding: 0 10px;
+}
+#app .order_obj .order_top .order_done div {
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: red;
+  width: 22px;
+  height: 22px;
+}
+#app .order_obj .order_top .order_ready {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  padding: 0 10px;
+}
+#app .order_obj .order_top .order_ready div {
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #4de86e;
+  width: 22px;
+  height: 22px;
+}
+#app .order_obj .order_order {
+  height: 300px;
+}
+#app .order_obj .order_bot {
+  font-size: 20px;
+  padding: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#app .order_obj .order_bot .order_placement {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+#app .order_obj .order_bot .order_price {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+#app .order_obj .order_bot .order_price strong {
+  background-color: #a6ffb0;
+  border-radius: 5px;
+}

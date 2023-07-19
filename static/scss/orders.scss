@@ -1,0 +1,25 @@
+#app{
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap : 10px;
+    .top{
+        font-family: 'Nunito', sans-serif;
+        background-color: #4de86e;
+        display: flex;
+        justify-content : center;
+        font-size: 40px;
+    }
+    .orders{
+        display: grid;
+        padding: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        font-family: 'Rubik', sans-serif;
+        .order{
+            font-size: 80px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+}

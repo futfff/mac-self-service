@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mac</title>
+    <link rel="stylesheet" type="text/css" href="/scss/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Open+Sans:wght@300&family=Rubik:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.js"></script>
+</head>
+<body>
+    <win id="app">
+        <div class="open" id="open">
+            <div class="open__content">
+                <div class="open__top">   
+                    <div class="open__obj"> 
+                        <div class="open__but but" @click="change_placement('hall');" onclick="document.getElementById('open').style.opacity = '0' ; setTimeout(() => {document.getElementById('open').style.display = 'none'}, 200)">
+                            <div class="open__but_img">
+                                
+                            </div>
+                            <div class="open__but_text">
+                                {{ leng.open_left }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="open__obj">
+                        <div class="open__but but" @click="change_placement('go')" onclick="document.getElementById('open').style.opacity = '0' ; setTimeout(() => {document.getElementById('open').style.display = 'none'}, 200)">
+                            <div class="open__but_img">
+                                
+                            </div>
+                            <div class="open__but_text">
+                                {{ leng.open_right }}
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <div class="open__bot">
+                    <div class="open__obj">
+                        <div class="open__but but"  @click="change_leng('ru')">
+                            <div class="open__but_img">
+                                <div class="open__ru_flag open__flag">
+                                    <div class="ru_flag__line"></div>
+                                    <div class="ru_flag__line"></div>
+                                    <div class="ru_flag__line"></div>
+                                </div>
+                            </div>
+                            <div class="open__but_text">
+                                русский
+                            </div>
+                        </div>
+                    </div>
+                    <div class="open__obj">
+                        <div class="open__but but" @click="change_leng('en')">
+                            <div class="open__but_img">
+                                <div class="open__en_flag open__flag">
+                                    <div class="en_flag__blue"></div>
+                                    <div class="en_flag__line"></div>
+                                    <div class="en_flag__line"></div>
+                                    <div class="en_flag__line"></div>
+                                    <div class="en_flag__line"></div>
+                                    <div class="en_flag__line"></div>
+                                    <div class="en_flag__line"></div>
+                                    <div class="en_flag__line"></div>
+                                    <div class="en_flag__line"></div>
+                                    <div class="en_flag__line"></div>
+                                    <div class="en_flag__line"></div>
+                                    <div class="en_flag__line"></div>
+                                    <div class="en_flag__line"></div>
+                                    <div class="en_flag__line"></div>
+                                </div>
+                            </div>
+                            <div class="open__but_text" >
+                                english
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="take">
+            <div class="take__type_list">
+                <div class="take__type_el">
+                    <div class="take__type_obj but" @click="change_menu('burger')">
+                        <div class="take__type_text">
+                            {{ leng.menu_type_burgers }}
+                        </div>
+                    </div>
+                </div>
+                <div class="take__type_el">
+                    <div class="take__type_obj but" @click="change_menu('snack')">
+                        <div class="take__type_text">
+                            {{ leng.menu_type_snacks }}
+                        </div>
+                    </div>
+                </div>
+                <div class="take__type_el">
+                    <div class="take__type_obj but"  @click="change_menu('dessert')">
+                        <div class="take__type_text">
+                            {{ leng.menu_type_desserts }}
+                        </div>
+                    </div>
+                </div>
+                <div class="take__type_el">
+                    <div class="take__type_obj but" @click="change_menu('drink')">
+                        <div class="take__type_text">
+                            {{ leng.drinks }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="take__menu" >
+                <div class="take__menu_type" v-for="type in menu">
+                    <p class="take__menu_text">{{type.name}}</p>
+                    <div class="take__menu_list">
+                        <div class="take__menu_el" v-for="food in type.food">
+                            <div class="take__menu_obj but" @click="add_to_order(food.id)">
+                                <div class="take__menu_face">
+                                    <img class="take__menu_img" src="https://pngimg.com/uploads/burger_sandwich/burger_sandwich_PNG4114.png">
+                                </div>
+                                <div class="take__menu_info">
+                                    <div class="take__menu_name">
+                                        {{food.name}}
+                                    </div>
+                                    <div class="take__menu_price">
+                                        {{food.price}}₸
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="order" id="order">
+            <div class="order__up" id="order_up"><i class="bi bi-chevron-compact-up"></i></div>
+            <div class="order__content">
+                <div class="order__order">
+                    <div class="order__obj" v-for="food in this.order.foods">
+                        <div class="food__name">{{food.name}} </div> 
+                        <div class="food__count"><div class="count__but but" @click="add_count( food.id , 'down')"><i class="bi bi-dash"></i></div> {{food.count}} <div class="count__but but" @click="add_count( food.id , 'add')"><i class="bi bi-plus"></i></div> </div> 
+                        <div class="food__price">{{food.total_price}}₸ </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pay">
+            <div class="pay__content">
+                <div class="order__header" id="order_header">
+                    <div class="order__header_text">
+                        <div class="ex">{{ order.count }}</div>
+                    </div>
+                    <div class="order__price but" @click="create_order"> <div class="ex"> {{order.price}}₸ </div></div>
+                </div>
+            </div>
+        </div>
+    </win>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="module" src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>заказы</title>
+    <link rel="stylesheet" type="text/css" href="/scss/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Open+Sans:wght@300&family=Rubik:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="/scss/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="order_obj" v-for="order in orders">
+            <div class="order_top">
+                <div class="order_id">#{{order.id}}</div>
+                <div :class="{'order_done': order.status === 'ready', 'order_ready': order.status === 'geting', 'but': true}" @click="del(order.id)"><div><i :class="{'bi-x': order.status === 'ready', 'bi-check2': order.status === 'geting', 'bi': true}"></i></div></div>
+            </div>
+            <div class="order_order">
+                <div class="order_food" v-for="food in order.con">
+                    {{food.food.ru_name}} <strong> {{food.count}}</strong> 
+                </div>
+            </div>
+            <div class="order_bot">
+                <div class="order_placement">place : <strong> {{order.placement}} </strong>   </div>
+                <div class="order_price">price: <strong> {{order.price}}₸</strong> </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="module" src="/js/admin.js"></script>
+</body>
+</html>
